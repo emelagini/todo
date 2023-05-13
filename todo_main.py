@@ -7,9 +7,9 @@ from telegram.ext import (
     ConversationHandler
 )
 from start_menu import start, main_menu
-from interrupt import *
+from interrupt import end, wrong_message
 from constants import *
-
+from task_create import add_handler
 
 updater = Updater(TOKEN) # Обновляет чат в поисках новых сообщений
 dispatcher = updater.dispatcher # распределительный центр
@@ -19,6 +19,7 @@ conv_handler = ConversationHandler( #обработчик диалога
     states={ # этапы разговора
             MENU:[MessageHandler(Filters.text & ~Filters.command, main_menu)],
             MENU_ITEMS:[
+                add_handler,
                 MessageHandler(Filters.text & ~Filters.command, wrong_message)
             ]
         },

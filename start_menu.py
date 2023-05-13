@@ -2,11 +2,13 @@ from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import CallbackContext, ConversationHandler
 from stickers import *
 from constants import *
+from file_work import init
 
 
 
 
 def start(update: Update, context: CallbackContext):
+    init(update, context)
     mark_up = [[GO]]
     keyboard = ReplyKeyboardMarkup(
         keyboard=mark_up,
@@ -33,3 +35,4 @@ def main_menu(update: Update, context: CallbackContext):
     update.message.reply_sticker(MAIN_MENU_STICKER)
     update.message.reply_text(
         f'Выберите, что хотите сделать, мастер {name}?', reply_markup=keyboard)
+    return MENU_ITEMS   

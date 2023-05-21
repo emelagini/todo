@@ -1,5 +1,5 @@
 GO = "Вперед"
-MENU, MENU_ITEMS, TASK,DATE = range(4)
+MENU, MENU_ITEMS, TASK,DATE,HOUR = range(5)
 CREATE = "📝 Добавить задачу 📝"
 READ = "🖥 Показать задачи 🖥"
 UPDATE = "⚙️ Изменить задачу ⚙️"
